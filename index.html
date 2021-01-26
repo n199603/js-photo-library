@@ -31,6 +31,23 @@
     ajax.responseType = 'json';
     // sendメソッド→ファイルの呼び出し(データをもらうだけのためnull)
     ajax.send(null);
+
+    // ajax通信を行っている状況を随時更新
+    // 0 UNSENT インスタンスができた
+    // 1 OPENED openメソッドを利用した
+    // 2 HEADERS_RECEIVED ヘッダーが受信できた
+    // 3 LOADING データ受信中
+    // 4 DONE 通信が終了
+    ajax.onreadystatechange = function() {
+      // alert(ajax.readyState);
+      // status:200→正常終了 (ex. 404エラー等)
+      if (ajax.readyState === XMLHttpRequest.DONE && ajax.status === 200) {
+        // this→ajaxオブジェクト
+        for (var i=0; i<this.response.length; i++) {
+          alert(this.response[i].path);
+        }
+      }
+    };
   </script>
 </body>
 </html>
