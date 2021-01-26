@@ -41,29 +41,25 @@
     var caption;
     var div;
 
-    // lengthプロパティで配列の長さを取得する
-    // i++で1を加える
-    for (var i=0; i<images.length; i++) {
-      // imgという要素を作るメソッド→imgタグが作られる
-      img = document.createElement('img');
+    // imgという要素を作るメソッド→imgタグが作られる
+    img = document.createElement('img');
 
-      // imgタグにsrc属性を指定し、imagesの0のpathを指定する
-      // <img src="img/img01.jpg">
-      img.setAttribute('src', images[i].path);
+    // imgタグにsrc属性を指定し、imagesの0のpathを指定する
+    // <img src="img/img01.jpg">
+    img.setAttribute('src', images[0].path);
 
-      // <div class="inner"><p>caption<span>name</span></p></div>
-      caption = document.createElement('div');
-      caption.className = 'inner';
-      caption.innerHTML = '<p>' + images[i].caption + '<span>' + images[i].name + '</span></p>';
+    // <div class="inner"><p>caption<span>name</span></p></div>
+    caption = document.createElement('div');
+    caption.className = 'inner';
+    caption.innerHTML = '<p>' + images[0].caption + '<span>' + images[0].name + '</span></p>';
 
-      div = document.createElement('div');
-      div.className = 'photo';
-      div.appendChild(img);
-      div.appendChild(caption);
+    div = document.createElement('div');
+    div.className = 'photo';
+    div.appendChild(img);
+    div.appendChild(caption);
 
-      // img_unitに子要素を追加する
-      document.getElementById('img_unit').appendChild(div);
-    }
+    // img_unitに子要素を追加する
+    document.getElementById('img_unit').appendChild(div);
   </script>
 </body>
 </html>
